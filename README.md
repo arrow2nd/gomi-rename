@@ -2,6 +2,9 @@
 
 ゴミファイル名にリネームする CLI ツール
 
+[![release](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml)
+[![test](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml)
+
 ## Usage
 
 ```
@@ -22,6 +25,26 @@ Flags:
   -n, --number int   number of decorations to add to file name (default 5)
   -v, --version      show version
 ```
+
+## Install
+
+### Homebrew
+
+```
+brew tap arrow2nd/tap
+brew install gomi-rename
+```
+
+### Scoop
+
+```
+scoop bucket add arrow2nd https://github.com/arrow2nd/scoop-bucket.git
+scoop install arrow2nd/gomi-rename
+```
+
+### Binary
+
+[Releases](https://github.com/arrow2nd/gomi-rename/releases) からお使いの環境にあったファイルをダウンロードしてください。
 
 ## Inspired by
 
