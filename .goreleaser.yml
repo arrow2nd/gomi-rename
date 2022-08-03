@@ -1,0 +1,64 @@
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    ldflags:
+      - -s -w
+      - -X main.appVersion={{.Version}}
+
+archives:
+  - replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+    format_overrides:
+      - goos: windows
+        format: zip
+
+brews:
+  - name: gomi-rename
+    tap:
+      owner: arrow2nd
+      name: homebrew-tap
+      token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
+    url_template: "https://github.com/arrow2nd/gomi-rename/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    folder: Formula
+    homepage: "https://github.com/arrow2nd/gomi-rename"
+    description: "CLI tool to rename trashy file names"
+    license: "MIT"
+    test: |
+      system "#{bin}/gomi-rename -v"
+    install: |
+      bin.install "gomi-rename"
+
+scoop:
+  bucket:
+    owner: arrow2nd
+    name: scoop-bucket
+    token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
+  url_template: "https://github.com/arrow2nd/gomi-rename/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+  homepage: "https://arrow2nd.com/works/gomi-rename"
+  description: "CLI tool for renaming to hellish file names"
+  license: "MIT"
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  name_template: "{{ .Tag }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
