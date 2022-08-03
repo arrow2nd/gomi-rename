@@ -35,18 +35,17 @@ func Gen(path string, count int) (string, error) {
 		fileName = fmt.Sprintf("【%s】", titles[0]) + fileName
 	}
 
-	// デコる
-	decos := []string{}
-
+	// 単語を付け足す
+	addWords := []string{}
 	for _, name := range words[:count] {
-		// 40% の確率で 1~10 のコピー回数を付ける
-		if copyNum := rand.Intn(25) - 14; copyNum > 0 {
-			name += fmt.Sprintf("(%d)", copyNum)
+		// 40% の確率で 1~10 の数字を付ける
+		if takeNum := rand.Intn(25) - 14; takeNum > 0 {
+			name += fmt.Sprintf("(%d)", takeNum)
 		}
-		decos = append(decos, name)
+		addWords = append(addWords, name)
 	}
 
-	fileName += "_" + strings.Join(decos, "_")
+	fileName += "_" + strings.Join(addWords, "_")
 
 	// 日付を置換
 	fileName = strings.Replace(fileName, "YYYYMMDD", time.Now().Format(dateFormats[0]), 1)
