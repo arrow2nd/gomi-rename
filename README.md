@@ -26,4 +26,5 @@ Flags:
 ## Inspired by
 
 > ゴミファイル名メーカー（@tooya2004 さん） | 診断メーカー
+>
 > https://shindanmaker.com/1119167
