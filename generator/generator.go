@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"errors"
 	"fmt"
 	"math/rand"
 	"path/filepath"
@@ -10,7 +11,11 @@ import (
 
 // Gen : ファイル名を生成
 func Gen(path string, count int) (string, error) {
-	// 繰り返し回数が上限を超えていないか
+	// 生成数の上限・下限チェック
+	if count < 0 {
+		return "", errors.New("too small value: minimum value is 0")
+	}
+
 	if max := len(names); count > max {
 		return "", fmt.Errorf("too large value: maximum value is %d", max)
 	}
@@ -34,7 +39,7 @@ func Gen(path string, count int) (string, error) {
 	decos := []string{}
 
 	for _, name := range names[:count] {
-		// コピー回数を付ける
+		// 40% の確率で 1~10 のコピー回数を付ける
 		if copyNum := rand.Intn(25) - 14; copyNum > 0 {
 			name += fmt.Sprintf("(%d)", copyNum)
 		}
