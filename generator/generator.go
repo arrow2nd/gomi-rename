@@ -16,14 +16,14 @@ func Gen(path string, count int) (string, error) {
 		return "", errors.New("too small value: minimum value is 0")
 	}
 
-	if max := len(names); count > max {
+	if max := len(words); count > max {
 		return "", fmt.Errorf("too large value: maximum value is %d", max)
 	}
 
 	// 名前リストをシャッフル
 	rand.Seed(time.Now().UnixMicro())
 	rand.Shuffle(len(titles), func(i, j int) { titles[i], titles[j] = titles[j], titles[i] })
-	rand.Shuffle(len(names), func(i, j int) { names[i], names[j] = names[j], names[i] })
+	rand.Shuffle(len(words), func(i, j int) { words[i], words[j] = words[j], words[i] })
 	rand.Shuffle(len(dateFormats), func(i, j int) { dateFormats[i], dateFormats[j] = dateFormats[j], dateFormats[i] })
 
 	// パスからファイル名と拡張子を抽出
@@ -38,7 +38,7 @@ func Gen(path string, count int) (string, error) {
 	// デコる
 	decos := []string{}
 
-	for _, name := range names[:count] {
+	for _, name := range words[:count] {
 		// 40% の確率で 1~10 のコピー回数を付ける
 		if copyNum := rand.Intn(25) - 14; copyNum > 0 {
 			name += fmt.Sprintf("(%d)", copyNum)
