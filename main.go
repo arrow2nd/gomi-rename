@@ -24,10 +24,10 @@ const (
 )
 
 var (
-	appName = "gomi-rename"
-	appDesc = "CLI tool to rename trashy file names"
-	version = "develop"
-	flags   = pflag.NewFlagSet(appName, pflag.ContinueOnError)
+	appName    = "gomi-rename"
+	appDesc    = "CLI tool for renaming to hellish file names"
+	appVersion = "develop"
+	flags      = pflag.NewFlagSet(appName, pflag.ContinueOnError)
 )
 
 func init() {
@@ -50,7 +50,7 @@ func main() {
 
 	// バージョン表示
 	if ver, _ := flags.GetBool("version"); ver {
-		fmt.Printf("%s v.%s\n", appName, version)
+		fmt.Printf("%s v.%s\n", appName, appVersion)
 		os.Exit(exitCodeOK.getInt())
 	}
 
