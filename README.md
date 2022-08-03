@@ -5,13 +5,9 @@
 [![release](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml)
 [![test](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml)
 
-## Usage
+![image](https://user-images.githubusercontent.com/44780846/182555441-3450a0a7-7727-4620-8cb6-290bff244d12.png)
 
-```
-$ gomi-rename 最高の企画書.pdf
-【優先度高】最高の企画書_修正版の修正版(6)_未記入アリ_最終確認版(6)_修正済(3)_訂正済.pdf
-  -> Done!
-```
+## Usage
 
 ```
 $ gomi-rename -h
