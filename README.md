@@ -2,8 +2,8 @@
 
 ゴミファイル名に自動でリネームする CLI ツール
 
-[![release](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml)
-[![test](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml)
+[![release](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml/badge.svg)](https://github.com/arrow2nd/gomi-rename/actions/workflows/release.yml)
+[![test](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml/badge.svg)](https://github.com/arrow2nd/gomi-rename/actions/workflows/test.yml)
 
 ![image](https://user-images.githubusercontent.com/44780846/182555441-3450a0a7-7727-4620-8cb6-290bff244d12.png)
 
