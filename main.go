@@ -71,7 +71,7 @@ func main() {
 
 		fmt.Println(newFileName)
 
-		// ドライラン
+		// ドライランなら処理を中断
 		if isDryRun {
 			continue
 		}

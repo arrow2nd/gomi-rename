@@ -20,11 +20,12 @@ func Gen(path string, count int) (string, error) {
 		return "", fmt.Errorf("too large value: maximum value is %d", max)
 	}
 
-	// 名前リストをシャッフル
 	rand.Seed(time.Now().UnixMicro())
-	rand.Shuffle(len(titles), func(i, j int) { titles[i], titles[j] = titles[j], titles[i] })
-	rand.Shuffle(len(words), func(i, j int) { words[i], words[j] = words[j], words[i] })
-	rand.Shuffle(len(dateFormats), func(i, j int) { dateFormats[i], dateFormats[j] = dateFormats[j], dateFormats[i] })
+
+	// リストをシャッフル
+	listShuffle(titles)
+	listShuffle(words)
+	listShuffle(dateFormats)
 
 	// パスからファイル名と拡張子を抽出
 	ext := filepath.Ext(path)
