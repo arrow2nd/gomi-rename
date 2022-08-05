@@ -1,6 +1,10 @@
 package generator
 
+import "math/rand"
+
 var (
+	// ファイル名先頭に付くタイトル
+	// 生成時に【】で囲まれます
 	titles = []string{
 		"",
 		"重要",
@@ -16,6 +20,7 @@ var (
 		"社外持ち出し厳禁",
 	}
 
+	// ファイル名末尾に付くワード
 	words = []string{
 		"YYYYMMDD",
 		"問い合わせ中",
@@ -49,6 +54,7 @@ var (
 		"ver1",
 	}
 
+	// `YYYYMMDD` を日付に置換する際に使われるフォーマット文字列
 	dateFormats = []string{
 		"2006-01-02",
 		"20060102",
@@ -63,3 +69,7 @@ var (
 		"1月2日確認済",
 	}
 )
+
+func listShuffle(l []string) {
+	rand.Shuffle(len(l), func(i, j int) { l[i], l[j] = l[j], l[i] })
+}
